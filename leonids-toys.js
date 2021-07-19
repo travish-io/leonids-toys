@@ -97,16 +97,31 @@ gameConsoles.push(gameCube);
 //   );
 // }
 
-// chapter 9
-const idToFind = 5;
+// chapter 9 add 5% to price
+// const idToFind = 5;
 
-for (const gameConsole of gameConsoles) {
-  if (gameConsole.id === idToFind) {
-    gameConsole.priceNew += Math.round(gameConsole.priceNew * 0.05);
-    gameConsole.priceUsed += Math.round(gameConsole.priceUsed * 0.05);
-    console.log(
-      `The ${gameConsole.manufacturer} ${gameConsole.name}! Now $${gameConsole.priceNew} New and $${gameConsole.priceUsed} Used!`
-    );
-  }
-}
-console.log(gameConsoles)
+// for (const gameConsole of gameConsoles) {
+//   if (gameConsole.id === idToFind) {
+//     gameConsole.priceNew += Math.round(gameConsole.priceNew * 0.05);
+//     gameConsole.priceUsed += Math.round(gameConsole.priceUsed * 0.05);
+//     console.log(
+//       `The ${gameConsole.manufacturer} ${gameConsole.name}! Now $${gameConsole.priceNew} New and $${gameConsole.priceUsed} Used!`
+//     );
+//   }
+// }
+// console.log(gameConsoles)
+
+const addConsoleToInventory = (name) => {
+  let newItem = {};
+  const lastIndex = gameConsoles.length - 1;
+  const currestLastConsole = gameConsoles[lastIndex];
+  const newId = currestLastConsole.id + 1;
+  newItem.id = newId;
+  newItem.name = name;
+  gameConsoles.push(newItem);
+};
+
+addConsoleToInventory("SNES");
+addConsoleToInventory("Wii");
+
+console.log(gameConsoles);
